@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Button go_btn = findViewById(R.id.go_btn);
         go_btn.setOnClickListener(view -> {
                 startActivity(new Intent(MainActivity.this, PlayerActivity.class)
-                        .putExtra("players", new ArrayList<>()));
+                        .putExtra("selected_players", new ArrayList<>()));
                 finish();
             }
         );

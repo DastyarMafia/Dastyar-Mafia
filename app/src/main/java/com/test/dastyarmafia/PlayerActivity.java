@@ -42,7 +42,7 @@ public class PlayerActivity extends AppCompatActivity {
         playerList = playerDB.getAllPlayers();
         playerNamesList = playerDB.getAllPlayersName();
 
-        List<String> _players = (ArrayList<String>) getIntent().getSerializableExtra("players");
+        List<String> _players = (ArrayList<String>) getIntent().getSerializableExtra("selected_players");
 
         Button submit_button = findViewById(R.id.submit_button);
         submit_button.setOnClickListener(view -> {
