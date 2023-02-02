@@ -18,4 +18,25 @@
     <string name="select_all_persian">انتخاب همه</string>
     <string name="add_player_persian">اضافه کردن بازیکن</string>
     <string name="back_persian">برگشت</string>
+    <string name="citizen_tab_persian">شهروند</string>
+    <string name="mafia_tab_persian">مافیا</string>
+
+    <!-- Roles -->
+
+    <string name="god_father">گاد فادر</string>
+    <string name="dr_lecter">دکتر لکتر</string>
+    <string name="simple_mafia">مافیا ساده</string>
+    <string name="joker">جوکر</string>
+
+    <string name="die_hard">جان سخت</string>
+    <string name="professional">حرفه ای</string>
+    <string name="detective">کارآگاه</string>
+    <string name="dr">دکتر</string>
+    <string name="mayor">شهردار</string>
+    <string name="simple_citizen">شهروند ساده</string>
+    <string name="psychiatrist">روان پزشک</string>
+
+
+
+
 </resources>
