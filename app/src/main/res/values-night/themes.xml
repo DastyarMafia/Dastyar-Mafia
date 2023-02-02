@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.DastyarMafia" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#BB86FC</item>
+        <item name="colorPrimary">#566500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">#FF0000</item>
         <!-- Secondary brand color. -->
