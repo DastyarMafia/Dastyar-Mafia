@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+    <RelativeLayout android:layout_centerInParent="true" android:id="@+id/main" android:layout_height="wrap_content" android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/primary_text_dark"
+            android:fontFamily="@font/soraya"
+            android:textSize="50sp"
+            android:text="@string/app_name_persian"
+            />
+
+        <Button
+            android:id="@+id/go_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/text"
+            android:background="@drawable/main_activity_button"
+            android:fontFamily="@font/soraya"
+            android:text="@string/submit_text"
+            android:textSize="25sp"
+            />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/info_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/transparent"
+        android:contentDescription="@string/setting_persian"
+        android:src="@drawable/ic_info" />
+
+</RelativeLayout>
