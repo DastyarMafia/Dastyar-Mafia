@@ -1,7 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".RoleActivity">
 
+    <RelativeLayout android:background="#555353" android:id="@+id/header" android:layout_height="wrap_content" android:layout_width="match_parent">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/select_players_text"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:contentDescription="@string/back_persian"
+            android:src="@drawable/ic_back"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/select_players_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/soraya"
+            android:text="@string/select_roles_persian"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/buttons"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button android:id="@+id/mafia_button"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/soraya" android:textSize="18sp" android:text="@string/mafia_tab_persian" android:enabled="false"/>
+        <Button android:id="@+id/citizen_button"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/soraya" android:layout_marginStart="3dp" android:textSize="18sp" android:text="@string/citizen_tab_persian"/>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <ScrollView
+        android:id="@+id/citizen_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttons"
+        android:layout_above="@id/end"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox android:text="@string/god_father"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/dr_lecter"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/joker"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/simple_mafia"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/mafia_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttons"
+        android:layout_above="@id/end"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox android:text="@string/dr"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/mayor"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/die_hard"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/detective"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/professional"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/simple_citizen"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+            <CheckBox android:text="@string/psychiatrist"
+                android:layout_width="match_parent" android:layout_height="70dp" android:fontFamily="@font/soraya" android:background="#1BFFFFFF" android:textColor="#FF03DAC5" android:textSize="20sp" android:textAlignment="center">
+            </CheckBox>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout android:id="@+id/end" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/soraya"
+            android:text="@string/submit_persian"
+            android:background="@drawable/submit_button"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="20sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="3dp"
+            android:layout_alignParentStart="true"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>
