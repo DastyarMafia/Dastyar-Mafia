@@ -1,7 +1,5 @@
 package com.test.dastyarmafia;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +11,6 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
@@ -22,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,9 +62,10 @@ public class PlayerActivity extends AppCompatActivity {
             int index = players_layouts.getChildCount();
             if (index == 0){ show_error("شما هیچ بازیکنی ندارید"); }
             else{
-                for (int i = 0; i < index; i++){
+                boolean state = selectedPlayersName.size() != index;
+                for (int i = 0; i < index; i++) {
                     CheckBox player = (CheckBox) players_layouts.getChildAt(i);
-                    player.setChecked(true);
+                    player.setChecked(state);
                 }
             }
         });
@@ -170,8 +170,8 @@ public class PlayerActivity extends AppCompatActivity {
 
     void show_success(CharSequence text){
         LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.success_toast, (ViewGroup) findViewById(R.id.notify_layout));
-        TextView tv = (TextView) layout.findViewById(R.id.notify_message);
+        View layout = inflater.inflate(R.layout.success_toast, findViewById(R.id.notify_layout));
+        TextView tv = layout.findViewById(R.id.notify_message);
         tv.setText(text);
         Context context = getApplicationContext();
         Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
@@ -182,8 +182,8 @@ public class PlayerActivity extends AppCompatActivity {
 
     void show_error(CharSequence text){
         LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.warn_toast, (ViewGroup) findViewById(R.id.notify_layout));
-        TextView tv = (TextView) layout.findViewById(R.id.notify_message);
+        View layout = inflater.inflate(R.layout.warn_toast, findViewById(R.id.notify_layout));
+        TextView tv = layout.findViewById(R.id.notify_message);
         tv.setText(text);
         Context context = getApplicationContext();
         Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
