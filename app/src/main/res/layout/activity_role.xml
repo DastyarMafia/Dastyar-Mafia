@@ -141,6 +141,19 @@
             android:layout_marginBottom="3dp"
             android:layout_alignParentStart="true"/>
 
+        <TextView
+            android:id="@+id/show_player_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/soraya"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="60dp"
+            android:textColor="@color/cardview_light_background"
+            android:text=""
+            />
+
+
     </RelativeLayout>
 
 </RelativeLayout>

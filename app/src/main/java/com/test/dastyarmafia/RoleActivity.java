@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +19,14 @@ import java.util.List;
 public class RoleActivity extends AppCompatActivity {
     Button citizen_button;
     Button mafia_button;
+    List<String> selectedPlayersName;
     List<String> selectedRolesName = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role);
+
+        selectedPlayersName = (ArrayList<String>) getIntent().getSerializableExtra("players");
 
         ImageButton back_button = findViewById(R.id.back_button);
         back_button.setOnClickListener(view -> onBackPressed());
@@ -49,15 +54,17 @@ public class RoleActivity extends AppCompatActivity {
 
         for (int i = 0; i < citizen_child_count; i++) {
             CheckBox role = (CheckBox) citizen_tab.getChildAt(i);
-            role.setOnCheckedChangeListener((compoundButton, b) -> onRoleSelected((String) role.getText(), b));
+            role.setOnCheckedChangeListener((compoundButton, b) -> onRoleSelected(compoundButton, (String) role.getText(), b));
             role.setOnLongClickListener(view -> true);
         }
 
         for (int i = 0; i < mafia_child_count; i++) {
             CheckBox role = (CheckBox) mafia_tab.getChildAt(i);
-            role.setOnCheckedChangeListener((compoundButton, b) -> onRoleSelected((String) role.getText(), b));
+            role.setOnCheckedChangeListener((compoundButton, b) -> onRoleSelected(compoundButton, (String) role.getText(), b));
             role.setOnLongClickListener(view -> true);
         }
+
+        refresh_counter();
     }
 
     @Override
@@ -68,9 +75,17 @@ public class RoleActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onRoleSelected(String roleName, boolean isChecked){
-        if (!isChecked && selectedRolesName.contains(roleName)){selectedRolesName.remove(roleName);}
+    @SuppressLint("SetTextI18n")
+    void refresh_counter(){
+        TextView textView = findViewById(R.id.show_player_count);
+        textView.setText( selectedRolesName.size() + "/" + selectedPlayersName.size());
+    }
+
+    public void onRoleSelected(CompoundButton checkBox, String roleName, boolean isChecked){
+        if (selectedRolesName.size() + 1 > selectedPlayersName.size() && isChecked){ checkBox.setChecked(false); }
+        else if (!isChecked && selectedRolesName.contains(roleName)){selectedRolesName.remove(roleName);}
         else if (isChecked && !selectedRolesName.contains(roleName)){selectedRolesName.add(roleName);}
+        refresh_counter();
     }
 
 }
