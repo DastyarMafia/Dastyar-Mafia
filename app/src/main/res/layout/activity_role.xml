@@ -55,6 +55,7 @@
         android:visibility="invisible">
 
         <LinearLayout
+            android:id="@+id/citizen_tab_roles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -87,6 +88,7 @@
         android:visibility="visible">
 
         <LinearLayout
+            android:id="@+id/mafia_tab_roles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
