@@ -84,6 +84,7 @@ public class PlayerActivity extends AppCompatActivity {
                     AddPlayerTo(player, findViewById(R.id.players), false);
                     playerList = playerDB.getAllPlayers();
                     playerNamesList = playerDB.getAllPlayersName();
+                    refresh_counter();
                 }
             });
             startActivity(intent);
@@ -102,11 +103,14 @@ public class PlayerActivity extends AppCompatActivity {
             changePlayersMod(0);
         }
 
+        refresh_counter();
+
     }
 
     void onCheckedChanged(String playerName, boolean isChecked){
         if (!isChecked && selectedPlayersName.contains(playerName)){selectedPlayersName.remove(playerName);}
         else if (isChecked && !selectedPlayersName.contains(playerName)){selectedPlayersName.add(playerName);}
+        refresh_counter();
     }
 
     void AddPlayerTo(Player player, LinearLayout mainLinear, boolean checked){
@@ -158,6 +162,7 @@ public class PlayerActivity extends AppCompatActivity {
                     }
                     playerList = playerDB.getAllPlayers();
                     playerNamesList = playerDB.getAllPlayersName();
+                    refresh_counter();
                 }
             });
             startActivity(intent);
@@ -190,6 +195,12 @@ public class PlayerActivity extends AppCompatActivity {
         toast.setView(layout);
         toast.setGravity(Gravity.BOTTOM, 0, 100);
         toast.show();
+    }
+
+    @SuppressLint("SetTextI18n")
+    void refresh_counter(){
+        TextView textView = findViewById(R.id.show_player_count);
+        textView.setText( selectedPlayersName.size() + "/" + playerList.size());
     }
 
     void changePlayersMod(int integer){
