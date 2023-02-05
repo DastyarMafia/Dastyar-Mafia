@@ -21,8 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button go_btn = findViewById(R.id.go_btn);
         go_btn.setOnClickListener(view -> {
+                Bundle data = new Bundle();
+                data.putStringArrayList("selected_players", new ArrayList<>());
+                data.putStringArrayList("selected_roles", new ArrayList<>());
                 startActivity(new Intent(MainActivity.this, PlayerActivity.class)
-                        .putExtra("selected_players", new ArrayList<>()));
+                        .putExtra("data", data));
                 finish();
             }
         );
