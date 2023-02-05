@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerActivity extends AppCompatActivity {
+    Bundle data;
     List<Player> playerList;
     List<String> playerNamesList;
     List<String> selectedPlayersName = new ArrayList<>();
@@ -41,7 +42,7 @@ public class PlayerActivity extends AppCompatActivity {
         playerList = playerDB.getAllPlayers();
         playerNamesList = playerDB.getAllPlayersName();
 
-        List<String> _players = (ArrayList<String>) getIntent().getSerializableExtra("selected_players");
+        data = getIntent().getBundleExtra("data");
 
         Button submit_button = findViewById(R.id.submit_button);
         submit_button.setOnClickListener(view -> {
@@ -50,7 +51,8 @@ public class PlayerActivity extends AppCompatActivity {
             else if (selectedPlayersName.size() > 50){ show_error("تعداد بازیکنان بیش از حد مجاز است"); }
             else {
                 Intent intent = new Intent(PlayerActivity.this, RoleActivity.class);
-                intent.putExtra("players", (ArrayList<String>) selectedPlayersName);
+                data.putStringArrayList("selected_players", (ArrayList<String>) selectedPlayersName);
+                intent.putExtra("data", data);
                 startActivity(intent);
                 finish();
             }
@@ -84,7 +86,6 @@ public class PlayerActivity extends AppCompatActivity {
                     AddPlayerTo(player, findViewById(R.id.players), false);
                     playerList = playerDB.getAllPlayers();
                     playerNamesList = playerDB.getAllPlayersName();
-                    refresh_counter();
                 }
             });
             startActivity(intent);
@@ -95,6 +96,7 @@ public class PlayerActivity extends AppCompatActivity {
 
         if (!playerList.isEmpty()){
             changePlayersMod(1);
+            ArrayList<String> _players = data.getStringArrayList("selected_players");
             for (Player player : playerList) {
                 AddPlayerTo(player, findViewById(R.id.players), _players.contains(player.getName()));
             }
@@ -115,7 +117,7 @@ public class PlayerActivity extends AppCompatActivity {
 
     void AddPlayerTo(Player player, LinearLayout mainLinear, boolean checked){
         CheckBox player_check = new CheckBox(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, convert_to_dp(70));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 70, getResources().getDisplayMetrics()));
         String playerName = player.getName();
         player_check.setLayoutParams(params);
         player_check.setBackgroundColor(Color.parseColor("#1BFFFFFF"));
@@ -200,7 +202,7 @@ public class PlayerActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     void refresh_counter(){
         TextView textView = findViewById(R.id.show_player_count);
-        textView.setText( selectedPlayersName.size() + "/" + playerList.size());
+        textView.setText( selectedPlayersName.size() + " نفر");
     }
 
     void changePlayersMod(int integer){
@@ -230,10 +232,5 @@ public class PlayerActivity extends AppCompatActivity {
 
     void edit_selected(String beforePlayerName, String afterPlayerName){
         if (selectedPlayersName.contains(beforePlayerName)) { selectedPlayersName.remove(beforePlayerName); selectedPlayersName.add(afterPlayerName);}
-    }
-    
-    int convert_to_dp(int num){
-        return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, num, getResources().getDisplayMetrics());
     }
 }
