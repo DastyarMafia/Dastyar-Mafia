@@ -128,8 +128,10 @@ public class PlayerActivity extends AppCompatActivity {
         player_check.setOnCheckedChangeListener((compoundButton, b) -> onCheckedChanged(playerName, b));
         player_check.setOnLongClickListener(view -> {
             Intent intent = new Intent(PlayerActivity.this, PlayerOptionActivity.class);
-            intent.putExtra("player", playerName);
-            intent.putExtra("players", (ArrayList<String>) playerNamesList);
+            Bundle playerBundle = new Bundle();
+            playerBundle.putStringArrayList("players", (ArrayList<String>) playerNamesList);
+            playerBundle.putString("player", playerName);
+            intent.putExtra("data", playerBundle);
             intent.putExtra("receiver", new ResultReceiver(null) {
                 @Override
                 protected void onReceiveResult(int resultCode, Bundle resultData) {

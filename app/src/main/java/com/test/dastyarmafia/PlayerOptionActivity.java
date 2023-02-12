@@ -16,17 +16,19 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class PlayerOptionActivity extends AppCompatActivity {
-    ArrayList<String> players_name;
-    String player;
+    Bundle data;
+    ArrayList<String> players;
+    String playerName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_option);
 
         TextView textView = findViewById(R.id.player_name);
-        players_name = (ArrayList<String>) getIntent().getSerializableExtra("players");
-        player = (String) getIntent().getStringExtra("player");
-        textView.setText(player);
+        data = getIntent().getBundleExtra("data");
+        players = (ArrayList<String>) data.getStringArrayList("players");
+        playerName = (String) data.getString("player");
+        textView.setText(playerName);
 
         Button deleteButton = findViewById(R.id.delete_player);
         deleteButton.setOnClickListener(view -> {

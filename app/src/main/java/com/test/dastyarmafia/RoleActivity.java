@@ -123,9 +123,10 @@ public class RoleActivity extends AppCompatActivity {
     }
 
     public void onRoleSelected(CompoundButton checkBox, String roleName, boolean isChecked){
+        boolean isRoleNameInRoles = selectedRolesName.contains(roleName);
         if (selectedRolesName.size() + 1 > selectedPlayersName.size() && isChecked){ checkBox.setChecked(false); }
-        else if (!isChecked && selectedRolesName.contains(roleName)){selectedRolesName.remove(roleName);}
-        else if (isChecked && !selectedRolesName.contains(roleName)){selectedRolesName.add(roleName);}
+        else if (!isChecked && isRoleNameInRoles){selectedRolesName.remove(roleName);}
+        else if (isChecked && !isRoleNameInRoles){selectedRolesName.add(roleName);}
         refresh_counter();
     }
 
