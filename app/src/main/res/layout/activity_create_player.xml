@@ -19,25 +19,27 @@
 
     <EditText
         android:id="@+id/player_name_edit"
-        android:layout_below="@id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text"
         android:backgroundTint="@color/teal_200"
         android:fontFamily="@font/soraya"
+        android:hint="@string/enter_player_name_persian"
+        android:inputType="textAutoComplete"
         android:maxLength="15"
         android:maxLines="1"
-        android:inputType="textAutoComplete"
-        android:hint="@string/enter_player_name_persian"
-        />
+        android:textColorHint="#3E2723"
+        android:autofillHints="" />
 
     <Button
-        android:layout_below="@id/player_name_edit"
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/player_name_edit"
+        android:background="@drawable/create_player_activity_button"
         android:fontFamily="@font/soraya"
         android:text="@string/submit_persian"
-        android:background="@drawable/create_player_activity_button"
-        />
+        android:textColor="#D50000"
+        tools:ignore="TextContrastCheck" />
 
 </RelativeLayout>
