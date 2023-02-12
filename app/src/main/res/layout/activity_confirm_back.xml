@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/create_player_activity"
+    tools:context=".CreatePlayer">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/soraya"
+        android:text="@string/confirm_text_persian"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/text"
+        android:layout_alignParentEnd="true"
+        app:rowCount="2"
+        app:alignmentMode="alignMargins"
+        app:columnCount="3">
+
+        <Button
+            android:id="@+id/no_button"
+            android:fontFamily="@font/soraya"
+            android:text="@string/no_persian"
+            android:textColor="#9EFF00"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_column="0"
+            app:layout_row="0"
+            app:layout_rowWeight="1"
+            android:layout_marginEnd="5dp"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/yes_button"
+            android:fontFamily="@font/soraya"
+            android:text="@string/yes_persian"
+            android:textColor="#9EFF00"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_column="1"
+            app:layout_row="0"
+            app:layout_rowWeight="1"
+            app:layout_columnWeight="1" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+
+</RelativeLayout>
