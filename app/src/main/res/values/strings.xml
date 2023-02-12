@@ -4,10 +4,13 @@
     <string name="app_description">کامل ترین اپ مافیا</string>
     <string name="home_persian">خانه</string>
     <string name="submit_text">ورود به بازی</string>
+    <string name="yes_persian">بله</string>
+    <string name="no_persian">خیر</string>
     <string name="demo_mode">حالت دمو</string>
     <string name="submit_persian">تائید</string>
     <string name="select_roles_persian">انتخاب نقش ها</string>
     <string name="select_players_persian">انتخاب بازیکنان</string>
+    <string name="select_auto_persian">انتخاب خودکار</string>
     <string name="create_player_persian">ساخت بازیکن</string>
     <string name="enter_player_name_persian">نام بازیکن</string>
     <string name="players_activity_help">شما هیچ بازیکنی ندارید!</string>
@@ -20,6 +23,7 @@
     <string name="back_persian">برگشت</string>
     <string name="citizen_tab_persian">شهروند</string>
     <string name="mafia_tab_persian">مافیا</string>
+    <string name="confirm_text_persian">آیا از ادامه کار مطمئنید؟</string>
 
     <!-- Roles -->
 
