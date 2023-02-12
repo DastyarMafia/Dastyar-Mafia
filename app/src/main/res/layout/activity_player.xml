@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/main_background"
     tools:context=".PlayerActivity">
 
     <RelativeLayout android:background="#555353" android:id="@+id/header" android:layout_height="wrap_content" android:layout_width="match_parent">
@@ -72,7 +72,7 @@
             android:layout_marginStart="5dp"
             android:background="@null"
             android:contentDescription="@string/select_all_persian"
-            android:src="@drawable/ic_submit_all" />
+            android:src="@drawable/ic_submit_all"/>
 
         <Button
             android:id="@+id/submit_button"
@@ -95,10 +95,10 @@
             android:fontFamily="@font/soraya"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="80dp"
+            android:layout_marginEnd="80dp"
             android:textColor="@color/cardview_light_background"
             android:text=""
-            />
+            tools:ignore="RelativeOverlap" />
 
         <ImageButton
             android:id="@+id/add_player_button"
